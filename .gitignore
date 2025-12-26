@@ -1,0 +1,23 @@
+.vscode/
+bin/
+lib/
+
+# 샵(#) 문자로 주석을 단다.
+
+# 특정 파일 무시
+# secret.txt
+
+# 특정 디렉토리 무시
+# build/
+
+# 모든 .log 파일 무시
+# *.log
+
+# 모든 디렉토리의 .DS_Store 파일 무시
+# **/.DS_Stroe
+
+# 특정 확장자 무시 - ex) 모든 .class 파일 무시
+# *.class
+
+# ignore된 파일 중 특정 파일을 추가하고 싶은 경우 '!' 사용
+# !.vscode/tasks.json
