@@ -3,3 +3,4 @@ public class remember {
         System.out.println("Hello, commander");
     }
 }
+/* 왜 안되냐 이거 */
