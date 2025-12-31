@@ -13,8 +13,18 @@ public class remember extends JFrame {
         public void keyPressed(KeyEvent e) {
             int keyCode = e.getKeyCode();
             System.out.println("Key pressed: " + KeyEvent.getKeyText(keyCode) + " - Key code: " + keyCode);
-            if(keyCode == 27){
-                System.exit(0);
+            switch (keyCode) {
+                case 27:
+                    System.exit(0);
+                    break;
+                case 116:   //F5
+                    Mousexy();
+                    break;
+                case 117:
+                    Mousemove();
+                    Mouseclick();
+                default:
+                    break;
             }
         }
 
@@ -41,17 +51,19 @@ public class remember extends JFrame {
 
     }
 
-    public void Mousemove(int x, int y, Robot robot){
+    public void Mousemove(){
         try{
-            robot.mouseMove(x, y);
+            Robot robot=new Robot();
+            robot.mouseMove(mousex, mousey);
             Thread.sleep(100);
         }catch(Exception e){
             e.printStackTrace();
         }
     }
 
-    public void Mouseclick(Robot robot){
+    public void Mouseclick(){
         try{
+            Robot robot=new Robot();
             robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
             Thread.sleep(500);
             robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
@@ -61,18 +73,19 @@ public class remember extends JFrame {
         }
     }
 
-    public int[] Mousexy(){
+    public void Mousexy(){
         Point point = MouseInfo.getPointerInfo().getLocation();
-        int[] xyArray= new int[2];
-        xyArray[0]=(int)point.getLocation().getX();
-        xyArray[1]=(int)point.getLocation().getY();
-        return xyArray;
+        mousex=(int)point.getLocation().getX();
+        mousey=(int)point.getLocation().getY();
+        System.out.println("x :" + mousex);
+        System.out.println("y :" + mousey);
     }
 
+    public int mousex = 0;
+    public int mousey = 0;
 
     public static void main(String[] args) throws Exception {
         try{
-            Robot robot=new Robot();
             remember wewillbewatching = new remember();
             wewillbewatching.Make();
         }catch(Exception e){
