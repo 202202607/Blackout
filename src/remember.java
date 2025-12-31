@@ -20,7 +20,7 @@ public class remember extends JFrame {
                 case 116:   //F5
                     Mousexy();
                     break;
-                case 117:
+                case 117:   //F6
                     Mousemove();
                     Mouseclick();
                 default:
